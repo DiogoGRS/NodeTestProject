@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const express = require("express")
 const app = express()
 const productRoute = require("./routes/productRoute")
+const errorMiddleware = require("./middleware/errorMiddleware")
 
 const MONGO_URL = process.env.MONGO_URL
 const PORT = process.env.PORT || 3000
@@ -11,6 +12,10 @@ app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
 app.use("/api/products", productRoute)
+
+
+app.use(errorMiddleware);
+
 
 mongoose.set("strictQuery", false)
 mongoose.

@@ -4,11 +4,11 @@ const { getProducts, findProduct, createProduct, updateProduct, deleteProduct } 
 
 const router = express.Router();
 
-router.get("/", getProducts)
-
 router.get("/:id", findProduct)
 
 router.put("/:id", updateProduct)
+
+router.get("/", getProducts)
 
 router.post("/", createProduct)
 
